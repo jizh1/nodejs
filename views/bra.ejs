@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-   <script type="text/javascript" src="search.js"></script>
+   <script type="text/javascript" src="bild.js"></script>
    <link rel="stylesheet" type="text/css" href="/assets/style.css">
 
    <title>Document</title>
@@ -16,9 +16,10 @@
   <div class="fstable">
     <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#news">NEWs</a></li>
+        <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about">About</a></li>
+        <li> <a href="/register">Min sida</a></li>
         <div class="dropdown">
           <h1>Mer</h1>
           <div class="dropdown-content">
@@ -29,8 +30,6 @@
         </div>
       </ul>
    </div>
-  
-
    <div class="search">
     <div class="container">
         <form method="post">
@@ -41,18 +40,23 @@
             </form>
           </div>  
     </div>
-   <br/><br/>
-   <form action="/bra" method="POST" enctype="multipart/form-data">
-       <label for="title">Title:</label>
-       <input type="text" name="title" /><br/><br/>
-       <label for="text">Text:</label>
-       <input type="text" name="text" /><br/><br/>
-       <label for="img">Image:</label>
-       <input type="file" accept="image/*" name="img" /><br/>
-       <button type="submit">Ok</button>
-   </form>
-
-
-  
+ 
+      <div class="grid">
+        <div class="fsbild" id="gallery-sidebar-1">
+          <img id="current-image" src="/bild/kiss.jpg" class="imagez" alt="image1"> </div>
+        <div class="abild" id="gallery-sidebar">
+          <div class="bild2"><img id="image2"  class="imagez" src="/bild/American_Gothic.jpg" alt="image2"></div>
+          <div class="bild3"> <img id="image3"  class="imagez" src="/bild/Campbell's Soup Cans.jpg" alt="image3"></div>
+          <div class="bild4"><img id="image4"  class="imagez" src="bild/Mona Lisa.jpg" alt="image4"></div>
+          <div class="bild5"><img id="image5"  class="imagez" src="bild/Drowning Girl.jpg" alt="image5"> </div>
+          <div class="bild6"> <img id="image6"  class="imagez" src="/bild/Nighthawks.jpg" alt="image6"></div>
+          <div class="bild7"><img id="image7" class="imagez"  src="/bild/PicassoGuernica.jpg" alt="image7"></div>
+          <div class="bild8"><img id="image8"   class="imagez" src="/bild/The Garden of Earthly Delights.jpg" alt="image8"></div>
+          <div class="bild9"><img id="image9"  class="imagez" src="/bild/The Great Wave off Kanagawa.jpg"alt="image9"></div>
+          <div class="bild10"><img id="image10"  class="imagez"  src="/bild/The Scream.jpg" alt="image10"></div>
+          <div class="bild11"><img id="image11"  class="imagez"  src="/bild/the-persistence-of-memory.jpg" alt="image11"></div>
+          <div class="bild12"><img id="image12"  class="imagez"  src="/bild/VanGogh-starry_night_ballance.jpg" alt="image12"></div>
+        </div>
+      </div>
 </body>
 </html>

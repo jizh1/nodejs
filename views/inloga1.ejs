@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <script type="text/javascript" src="bild.js"></script>
+   <link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+   <title>Document</title>
+</head>
+<body>
+  <div class="fstable">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li> <a href="/profil">profile</a></li>
+        <div class="dropdown">
+          <h1>Mer</h1>
+          <div class="dropdown-content">
+              <a href="#">1 1</a>
+              <a href="#">2 2</a>
+              <a href="#">3 3</a>
+            </div>
+        </div>
+      </ul>
+   </div>
+   <div class="search">
+    <div class="container">
+        <form method="post">
+            <div class="autocomplete-container">
+                <input type="text" id="enamn" name="enamn" placeholder="name">
+              </div>
+              <input type="submit" id="namn" name="namn" value="sök ägare">
+            </form>
+          </div>  
+    </div>
+ 
+      <div class="grid">
+        <div class="fsbild">
+          <img id="image1" src="/bild/kiss.jpg" alt="image1"> </div>
+        <div class="abild">
+          <div class="andra"><img id="image2" src="/bild/American_Gothic.jpg" alt="image2"></div>
+          <div class="bild3"> <img id="image3" src="/bild/Campbell's Soup Cans.jpg" alt="image3"></div>
+          <div class="bild4"><img id="image4" src="bild/Mona Lisa.jpg" alt="image4"></div>
+          <div class="bild5"><img id="image5" src="bild/Drowning_Girl.jpg" alt="image5"> </div>
+          <div class="bild6"> <img id="image6" src="/bild/Nighthawks.jpg" alt="image6"></div>
+          <div class="bild7"><img id="image7" src="/bild/PicassoGuernica.jpg" alt="image7"></div>
+          <div class="bild8"><img id="image8"  src="/bild/The Garden of Earthly Delights.jpg" alt="image8"></div>
+          <div class="bild9"><img id="image9" src="/bild/The Great Wave off Kanagawa.jpg"alt="image9"></div>
+          <div class="bild10"><img id="image10"  src="/bild/The Scream.jpg" alt="image10"></div>
+          <div class="bild11"><img id="image11"  src="/bild/the-persistence-of-memory.jpg" alt="image11"></div>
+          <div class="bild12"><img id="image12"  src="/bild/VanGogh-starry_night_ballance.jpg" alt="image12"></div>
+        </div>
+      </div>
+    
+  
+
+   <form action="/bra" method="POST" enctype="multipart/form-data">
+       <label for="title">Title:</label>
+       <input type="text" name="title" /><br/><br/>
+       <label for="text">Text:</label>
+       <input type="text" name="text" /><br/><br/>
+       <label for="img">Image:</label>
+       <input type="file" accept="image/*" name="img" /><br/>
+       <button type="submit">Ok</button>
+   </form>
+
+
+  
+</body>
+</html>

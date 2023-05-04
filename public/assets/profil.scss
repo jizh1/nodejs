@@ -1,0 +1,94 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.kuangjia {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  width: 800px;
+}
+
+.touxiang img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.touxiang input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.information-details {
+  position: relative;
+}
+
+.information-details label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.information-details input[type="text"],
+.information-details input[type="email"],
+.information-details input[type="tel"],
+.information-details input[type="address"],
+.information-details input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  text-align: center;
+  width: 80%;
+  height: 15%;
+  background-color: black;
+}
+
+.upload-area input[type="file"] {
+}
+
+img#image-preview {
+  max-width: 200px;
+  max-height: 200px;
+  margin-top: 10px;
+  border-radius: 50%;
+  border: 5px solid #3399FF;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0062cc;
+}
