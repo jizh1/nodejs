@@ -8,11 +8,16 @@
    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <script type="text/javascript" src="bild.js"></script>
+   <script type="text/javascript" src="andra.js"></script>
    <link rel="stylesheet" type="text/css" href="/assets/style.css">
+   <link rel="stylesheet" type="text/css" href="/assets/andra.css">
 
    <title>Document</title>
 </head>
 <body>
+  <video autoplay loop muted playsinline id="video-background">
+    <source src="/bild/11.mp4" type="video/mp4">
+  </video>
   <div class="fstable">
     <ul>
         <li><a href="#home">Home</a></li>
@@ -41,37 +46,181 @@
           </div>  
     </div>
  
-      <div class="grid">
-        <div class="fsbild">
-          <img id="image1" src="/bild/kiss.jpg" alt="image1"> </div>
-        <div class="abild">
-          <div class="andra"><img id="image2" src="/bild/American_Gothic.jpg" alt="image2"></div>
-          <div class="bild3"> <img id="image3" src="/bild/Campbell's Soup Cans.jpg" alt="image3"></div>
-          <div class="bild4"><img id="image4" src="bild/Mona Lisa.jpg" alt="image4"></div>
-          <div class="bild5"><img id="image5" src="bild/Drowning_Girl.jpg" alt="image5"> </div>
-          <div class="bild6"> <img id="image6" src="/bild/Nighthawks.jpg" alt="image6"></div>
-          <div class="bild7"><img id="image7" src="/bild/PicassoGuernica.jpg" alt="image7"></div>
-          <div class="bild8"><img id="image8"  src="/bild/The Garden of Earthly Delights.jpg" alt="image8"></div>
-          <div class="bild9"><img id="image9" src="/bild/The Great Wave off Kanagawa.jpg"alt="image9"></div>
-          <div class="bild10"><img id="image10"  src="/bild/The Scream.jpg" alt="image10"></div>
-          <div class="bild11"><img id="image11"  src="/bild/the-persistence-of-memory.jpg" alt="image11"></div>
-          <div class="bild12"><img id="image12"  src="/bild/VanGogh-starry_night_ballance.jpg" alt="image12"></div>
+    <div class="grid">
+      <div class="fsbild" id="gallery-sidebar-1">
+        <img id="current-image" src="/bild/kiss.jpg" class="imagez" alt="image1"> </div>
+      <div class="abild" id="gallery-sidebar">
+        <div class="bild2"><img id="image2"  class="imagez" src="/bild/American_Gothic.jpg" alt="image2"></div>
+        <div class="bild3"> <img id="image3"  class="imagez" src="/bild/Campbell's Soup Cans.jpg" alt="image3"></div>
+        <div class="bild4"><img id="image4"  class="imagez" src="bild/Mona Lisa.jpg" alt="image4"></div>
+        <div class="bild5"><img id="image5"  class="imagez" src="bild/Drowning Girl.jpg" alt="image5"> </div>
+        <div class="bild6"> <img id="image6"  class="imagez" src="/bild/Nighthawks.jpg" alt="image6"></div>
+        <div class="bild7"><img id="image7" class="imagez"  src="/bild/PicassoGuernica.jpg" alt="image7"></div>
+        <div class="bild8"><img id="image8"   class="imagez" src="/bild/The Garden of Earthly Delights.jpg" alt="image8"></div>
+        <div class="bild9"><img id="image9"  class="imagez" src="/bild/The Great Wave off Kanagawa.jpg"alt="image9"></div>
+        <div class="bild10"><img id="image10"  class="imagez"  src="/bild/The Scream.jpg" alt="image10"></div>
+        <div class="bild11"><img id="image11"  class="imagez"  src="/bild/the-persistence-of-memory.jpg" alt="image11"></div>
+        <div class="bild12"><img id="image12"  class="imagez"  src="/bild/VanGogh-starry_night_ballance.jpg" alt="image12"></div>
+      </div>
+    </div>
+      
+ 
+      <div class="andra">
+        <div class="button-table-top">
+            <div class="buttons">
+                <button onclick="showImagesByTag('all')">All</button>
+                <button onclick="showImagesByTag('Renaissance')">Renaissance</button>
+                <button onclick="showImagesByTag('post-impressionism')">post-impressionism</button>
+                <button onclick="showImagesByTag('abstract-expressionism')">abstract-expressionism</button>
+                <button onclick="showImagesByTag('Surrealism')">Surrealism</button>
+                <button onclick="showImagesByTag('Cubism-and-Modern-Art')">Cubism-and-Modern-Art</button>
+                <button onclick="showImagesByTag('dutch-golden-age')">dutch-golden-age</button>
+               
+            </div>
+          </div>
+            <div class="button-table-left">
+              <div class="buttons">
+                  <button onclick="showImagesByTag('all')">all</button>
+                  <button onclick="showImagesByTag('Leonardo-da-Vinci')">Leonardo-da-Vinci</button>
+                  <button onclick="showImagesByTag('Michelangelo')">Michelangelo</button>
+                  <button onclick="showImagesByTag('Rembrandt')">Rembrandt</button>
+                  <button onclick="showImagesByTag('Vincent-van-Gogh')">Vincent-van-Gogh</button>
+                  <button onclick="showImagesByTag('Salvador-Dalí')">Salvador-Dalí</button>
+                  <button onclick="showImagesByTag('Pablo-Picasso')">Pablo-Picasso</button>
+                  <button onclick="showImagesByTag('user-upload')">user-upload</button>
+              </div>
+            </div>
+              <div class="grid-aren">
+                <div class="container">
+                    <div class="image-container Leonardo-da-Vinci Renaissance">
+                        <img class="image" id="image1" src="bild/Mona Lisa.jpg" alt="Mona Lisa">
+                        <div class="tags">
+                            <span class="tag">Leonardo-da-Vinci</span>
+                            <span class="tag">Renaissance</span>
+                        </div>
+                    </div>
+                    <div class="image-container Leonardo-da-Vinci Renaissance">
+                        <img class="image" id="image2" src="bild/The_Last_Supper_high_res.jpg" alt="The_Last_Supper_high">
+                        <div class="tags">
+                            <span class="tag">Leonardo-da-Vinci</span>
+                            <span class="tag">Renaissance</span>
+                        </div>
+                    </div>
+                    <div class="image-container Leonardo-da-Vinci Renaissance">
+                        <img class="image" id="image3" src="/bild/vitruvian-man.jpg" alt="vitruvian-man">
+                        <div class="tags">
+                            <span class="tag">Leonardo-da-Vinci</span>
+                            <span class="tag">Renaissance</span>
+                        </div>
+                    </div>
+                    <div class="image-container Michelangelo Renaissance">
+                        <img class="image" id="image4" src="bild/'David'_by_Michelangelo_Fir_JBU004.jpg" alt="'David'">
+                        <div class="tags">
+                            <span class="tag">Michelangelo</span>
+                            <span class="tag">Renaissance</span>
+                        </div>
+                    </div>
+                    <div class="image-container Michelangelo Renaissance">
+                        <img class="image" id="image5" src="bild/Michelangelo_the_creation_of_adam_meaning.jpg" alt="'Michelangelo_the_creation_of_adam_meaning'">
+                        <div class="tags">
+                            <span class="tag">Michelangelo</span>
+                            <span class="tag">Renaissance</span>
+                        </div>
+                    </div>
+                    <div class="image-container Michelangelo Renaissance">
+                        <img class="image" id="image6" src="bild/Last_Judgement_(Michelangelo).jpg" alt="'Last_Judgement'">
+                        <div class="tags">
+                            <span class="tag">Michelangelo</span>
+                            <span class="tag">Renaissance</span>
+                        </div>
+                    </div>
+                    <div class="image-container Rembrandt dutch-golden-age">
+                        <img class="image" id="image7" src="bild/1200px-The_Night_Watch_-_HD.jpg" alt="'The_Night_Watch'">
+                        <div class="tags">
+                            <span class="tag">Rembrandt</span>
+                            <span class="tag">dutch golden age</span>
+                        </div>
+                    </div>
+                    <div class="image-container Vincent-van-Gogh post-impressionism">
+                        <img class="image" id="image8" src="bild/VanGogh-starry_night_ballance.jpg" alt="'starry_night'">
+                        <div class="tags">
+                            <span class="tag">Vincent-van-Gogh</span>
+                            <span class="tag">post-impressionism</span>
+                        </div>
+                    </div>
+               
+                  <div class="image-container Vincent-van-Gogh post-impressionism">
+                    <img class="image" id="image10" src="bild/vangoghmuseum-s0031V1962-800.jpg" alt="'vangoghmuseum'">
+                    <div class="tags">
+                        <span class="tag">Vincent-van-Gogh</span>
+                        <span class="tag">post-impressionism</span>
+                    </div>
+                </div>
+          
+              <div class="image-container Vincent-van-Gogh post-impressionism">
+                <img class="image" id="image12" src="bild/default.jpg" alt="'default'">
+                <div class="tags">
+                    <span class="tag">Vincent-van-Gogh</span>
+                    <span class="tag">post-impressionism</span>
+                </div>
+            </div>
+            <div class="image-container  Salvador-Dalí Surrealism">
+              <img class="image" id="image13" src="bild/the-persistence-of-memory.jpg" alt="'the-persistence-of-memory'">
+              <div class="tags">
+                  <span class="tag">Salvador-Dalí</span>
+                  <span class="tag">Surrealism</span>
+              </div>
+          </div>
+          <div class="image-container Salvador-Dalí Surrealism">
+            <img class="image" id="image14" src="bild/DisintegrationofPersistence.jpg" alt="'The Disintegration of the Persistence of Memorys'">
+            <div class="tags">
+              <span class="tag">Salvador-Dalí</span>
+                  <span class="tag">Surrealism</span>
+            </div>
+        </div>
+        <div class="image-container Christ of Saint John of the Cross">
+          <img class="image" id="image15" src="bild/Christ_of_Saint_John_of_the_Cross.jpg" alt="'Christ of Saint John of the Cross'">
+          <div class="tags">
+            <span class="tag">Salvador-Dalí</span>
+                <span class="tag">Surrealism</span>
+          </div>
+      </div>
+      <div class="image-container Pablo-Picasso Cubism-and-Modern-Art">
+        <img class="image" id="image16" src="bild/image.png" alt="'Les Demoiselles d'Avignon'">
+        <div class="tags">
+          <span class="tag">Pablo-Picasso</span>
+              <span class="tag">Cubism-and-Modern-Art</span>
+        </div>
+    </div>
+    <div class="image-container Pablo-Picasso Cubism-and-Modern-Art">
+      <img class="image" id="image17" src="bild/Family_of_Saltimbanques.jpg" alt="'Family of Saltimbanques'">
+      <div class="tags">
+        <span class="tag">Pablo-Picasso</span>
+            <span class="tag">Cubism-and-Modern-Art</span>
+      </div>
+  </div>
+  <div class="image-container Cubism-and-Modern-Art Pablo-Picasso">
+    <img class="image" id="image18" src="bild/Picasso_The_Weeping_Woman_Tate_identifier_T05010_10.jpg" alt="'Weeping Woman'">
+    <div class="tags">
+      <span class="tag">Pablo-Picasso</span>
+          <span class="tag">Cubism-and-Modern-Art</span>
+    </div>
+</div>
+
+<div class="image-container Renaissance Post-Impressionism ">
+  <img class="image" id="image19" src="bild/nedladdning (1).jpg" alt="'nedladdning'">
+  <div class="tags">
+    <span class="tag">Post-Impressionism</span>
+        <span class="tag">Renaissance</span>
+  </div>
+</div>
+
+
+
+          </div>
         </div>
       </div>
-    
-  
-
-   <form action="/bra" method="POST" enctype="multipart/form-data">
-       <label for="title">Title:</label>
-       <input type="text" name="title" /><br/><br/>
-       <label for="text">Text:</label>
-       <input type="text" name="text" /><br/><br/>
-       <label for="img">Image:</label>
-       <input type="file" accept="image/*" name="img" /><br/>
-       <button type="submit">Ok</button>
-   </form>
-
-
+   
   
 </body>
 </html>

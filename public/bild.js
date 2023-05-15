@@ -23,4 +23,8 @@ function cycleImages() {
   currentImage = nextImage;
 }
 
+
+
 setInterval(cycleImages, 3000);
+
+

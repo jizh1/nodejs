@@ -1,23 +1,37 @@
-const profileForm = document.getElementById('profile-form');
-const avatarPreview = document.getElementById('avatar-preview');
-
-
-function updatePreview(event) {
-  const file = event.target.files[0];
-  const preview = document.getElementById('image-preview');
-  const reader = new FileReader();
-  reader.addEventListener('load', () => {
-    preview.src = reader.result;
-  }, false);
-  if (file) {
-    reader.readAsDataURL(file);
+function toggleUploadForm() {
+  var uploadForm = document.getElementById("upload-form");
+  if (uploadForm.style.display === "none") {
+    uploadForm.style.display = "block";
+  } else {
+    uploadForm.style.display = "none";
   }
 }
-function chooseFile() {
-  document.getElementById('file-input').click();
-}
 
-// 提交表单事件处理函数
+const form = document.getElementById("form");
+const gridItems = document.querySelectorAll(".grid-item");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  const file = this.elements.img.files[0];
+  const reader = new FileReader();
+
+  reader.onloadend = function() {
+    const img = document.createElement("img");
+    img.src = reader.result;
+    const gridItem = Array.from(gridItems).find(item => !item.innerHTML);
+    gridItem.appendChild(img);
+    toggleUploadForm();
+  }
+
+  reader.readAsDataURL(file);
+});
+
+
+document.addEventListener('DOMContentLoaded', init)
+function init(){
+const profileForm = document.getElementById('profile-form');
+const avatarPreview = document.getElementById('avatar-preview');
+/*
 profileForm.addEventListener('submit', async event => {
   event.preventDefault();
 
@@ -44,6 +58,20 @@ profileForm.addEventListener('submit', async event => {
   }
 });
 
+}
+*/
+function updatePreview(event) {
+  avatarPreview.src = window.URL.createObjectURL(file);
+  const file = event.target.files[0];
+  const preview = document.getElementById('image-preview');
+  preview.src = window.URL.createObjectURL(file);
+}
+function chooseFile() {
+  //document.getElementById('file-input').click();
+}
+
+// 提交表单事件处理函数
+/*
 function save() {
   const preview = document.getElementById('image-preview');
   const canvas = document.createElement('canvas');
@@ -78,4 +106,10 @@ function save() {
   if (localStorage.getItem('avatar')) {
     document.getElementById('image-preview').src = localStorage.getItem('avatar');
   }
+
+
+
 }
+*/document.getElementById('avatar').addEventListener('click', () => {
+  document.getElementById('avatar-input').click();
+});}

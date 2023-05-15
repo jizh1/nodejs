@@ -7,12 +7,17 @@
     <link rel="stylesheet" type="text/css" href="/assets/style.css" />
     <link rel="stylesheet" type="text/css" href="/assets/profil.css" />
     <script type="text/javascript" src="profil.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/andra.css">
+
 
     <title>Document</title>
   </head>
-             
-
   <body>
+    <video autoplay loop muted playsinline id="video-background">
+      <source src="/bild/11.mp4" type="video/mp4">
+    </video>
     <div class="fstable">
       <ul>
         <li><a href="/inloga1">Home</a></li>
@@ -31,47 +36,58 @@
 <button type="button" onclick="location.href='/bra'">Logout</button>
       </ul>
     </div>
-    
+
     <div class="container">
       <div class="kuangjia">
-        <form id="myForm">
+        <form id="profile-form" action="/profil" method="POST" enctype="multipart/form-data">
           <div class="information">
             <div class="touxiang" onclick="chooseFile()">
-              <img id="image-preview'" src="/bild/profile.jpg" alt="Profile Picture">
-              <input type="file" id="file-input" onchange="updatePreview(event)" accept="image/*">
+              <% if (user && user.avatar) { %>
+                <img id="avatar-preview" src="<%= user.avatar %>">
+                <% } else { %>
+                <img id="avatar-preview" src="/bild/profile.jpg">
+                <% } %>
+              <input name="avatar" type="file" id="file-input" onchange="updatePreview(event)" accept="image/*">
             </div>
           </div>
           <div class="information-details">
+            <input type="hidden" name="id" value="<%= user.id %>">
+            <input type="text" id="id" name="id" value="<%= user.id %>" style="display: none;">
             <label for="name">User Name:</label>
-            <input type="text" id="name" name="name" value="<%= user.username %>">
+            <input type="text" id="name" name="username" value="<%= user.username %>">
             <label for="email">email:</label>
-            <input type="email" id="email" name="email" value="<%= user.email %>">
-            <label for="Mobiltelefon">Mobiltelefon:</label>
-            <input type="tel" id="Mobiltelefon" name="Mobiltelefon" placeholder="Mobiltelefon">
-            <label for="adress">adress:</label>
-            <input type="text" id="adress" name="adress" placeholder="adress">
+            <input type="email" id="email" name="email" value="<%=user.email %>">
+            <label for="mobile">Mobiltelefon:</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobiltelefon">
+            <label for="address">address:</label>
+            <input type="text" id="address" name="address" placeholder="address">
             <label for="password">password:</label>
-            <input type="password" id="password" name="password" placeholder="Password">
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
-            <button type="button" onclick="save()">Save</button>
+            <input type="password" id="password" name="password" placeholder="Confirm Password">
+            
+            <button type="submit">Save</button>
           </div>
-        
-          
+        </form>
       </div>
     </div>
-    <div class="upload-area">
-      <h1>eget arbete</h1>
-      <button class="upload-button" onclick="toggleUploadForm()">Upload</button>
-      <form id="upload-form" action="/bra" method="POST" enctype="multipart/form-data" style="display: none;">
-        <label for="title">Title:</label>
-        <input type="text" name="title" /><br/><br/>
-        <label for="text">Text:</label>
-        <input type="text" name="text" /><br/><br/>
-        <label for="img">Image:</label>
-        <input type="file" accept="image/*" name="img" /><br/>
-        <button type="submit">Ok</button>
-      </form>
-    </div>
+    
+      <div class="upload-area">
+        <h1 class="text-area">Publicera din arbete</h1>
+        <button class="upload-button" onclick="toggleUploadForm()">Upload</button>
+        <div id="upload-form">
+          <form id="form" action="/user-upload" method="POST" enctype="multipart/form-data">
+            <label for="title">Title:</label>
+            <input type="text" name="title"><br><br>
+            <label for="img">Image:</label>
+            <input type="file" accept="image/*" name="img"><br>
+            <label for="tag">Tag:</label>
+            <input type="text" name="tag"><br>
+            <button type="submit">Ok</button>
+          </form>
+        </div>
+      
+
+        
+      </div>
   </body>
 </html>
 

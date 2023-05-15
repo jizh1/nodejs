@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  background-color: beige;
+  background-color: white;
   margin-top: 0%;
   margin-left: 0%;
   margin-bottom: 0%;
@@ -57,9 +57,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-color: red;
+  background-color: #333;
   gap: 10%;
   height: 100%;
+  position: relative;
+  left: 20%;
+  width: 50%;
 }
 .fstable ul li a {
   text-decoration: none;
@@ -79,6 +82,7 @@ body {
   left: 10%;
   position: relative;
   height: 85%;
+  border: 2px solid white;
 }
 .grid img {
   width: 100%;
@@ -98,4 +102,232 @@ body {
   top: -100%;
   left: 70%;
   overflow: auto;
+}
+
+.search {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown h1 {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.fstable {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+.fstable ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.fstable li {
+  margin-right: 20px;
+}
+
+.fstable a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.fstable a:hover {
+  color: yellow;
+}
+
+.search {
+  background-color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.autocomplete-container {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+input[type=text] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+input[type=submit] {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.fstable {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+.fstable ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fstable li {
+  float: left;
+  width: 14.28%;
+  border-right: 1px solid #666;
+  position: relative;
+}
+
+.fstable a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.fstable a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.fstable li:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+/* Hide video controls */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
 }/*# sourceMappingURL=style.css.map */

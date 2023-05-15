@@ -28,3 +28,66 @@ body{
     
 }
 
+
+
+.login {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+   
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #login {
+    background-color: #007bff;
+    color: #fff;
+  }
+  input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    width: 95%;}
+    
+  #register {
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+  }
+  
+  #register.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  
