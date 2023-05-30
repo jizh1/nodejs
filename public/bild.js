@@ -19,10 +19,14 @@ function cycleImages() {
   const gallery = document.querySelector('#gallery-sidebar-1');
   const imgElement = gallery.querySelector('img');
   const nextImage = (currentImage + 1) % images.length;
-  imgElement.src = images[nextImage];
-  currentImage = nextImage;
+  
+  let newImage = new Image();
+  newImage.src = images[nextImage];
+  newImage.onload = function() {
+    imgElement.src = this.src;
+    currentImage = nextImage;
+  }
 }
-
 
 
 setInterval(cycleImages, 3000);
