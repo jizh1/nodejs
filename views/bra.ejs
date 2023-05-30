@@ -36,16 +36,13 @@
         </div>
       </ul>
    </div>
-   <div class="search">
-    <div class="container">
-        <form method="post">
-            <div class="autocomplete-container">
-                <input type="text" id="enamn" name="enamn" placeholder="name">
-              </div>
-              <input type="submit" id="namn" name="namn" value="sök ägare">
-            </form>
-          </div>  
+   <form action="/search" method="get">
+    <div class="autocomplete-container">
+        <input type="text" id="namn" name="namn" placeholder="name">
     </div>
+    <input type="submit" id="namn" name="namn" value="sök ägare">
+</form>
+
  
       <div class="grid">
         <div class="fsbild" id="gallery-sidebar-1">
@@ -214,9 +211,25 @@
   </div>
 </div>
 
+  <% data.forEach(function (post) { %>
+    <% if(post.text3 != ''){ %>  <!-- Change post.text3 to post.img -->
+        <div class="image-container <%= post.text1%> <%= post.tag %> user-upload">  <!-- Change post.text2 to post.tag -->
+            <img class="image" src="<%= post.text3 %>" alt="'default'">  <!-- Change post.text3 to post.img -->
+            <div class="tags">
+                <span class="tag"><%= post.text1 %></span>
+                <span class="tag"><%= post.tag %></span>
+                <span class="tag">user-upload</span>   <!--  Added this line -->
+            </div>
+        </div>
+    <% } %> 
+    <p><%= post.text3 %></p>  <!-- Change post.img to post.text3 -->
+<% }) %>
+
+
+
           </div>
         </div>
       </div>
-    
+   
 </body>
 </html>

@@ -34,7 +34,7 @@
   const { log } = require('console');
 
   app.post('/bra', upload.single('img'), function(req,res){
-      const title = req.body.title;
+      const text1 = req.body.text1;
       const text = req.body.text;
       const img = "/uploads/"+req.file.filename;
       const sqlInsert = "INSERT INTO njstabell (text1,tag,text3) VALUES (?, ?, ?);"
@@ -66,9 +66,6 @@
       res.render('profil')
   });
   */
-  app.get('/bra',function(req,res){
-      res.render('bra')
-  });
 
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -132,7 +129,6 @@
     app.get('/profil', function(req, res) {
       if (req.session.user) {
         const user = req.session.user;
-    
         let sql = 'SELECT * FROM njstabell ORDER BY id DESC';
         db.query(sql, function(err, results){
           if(err) {
@@ -180,16 +176,18 @@
             mobile: mobile,
             avatar: avatar
           }
-          res.render('profil', { user: req.session.user }); // 将用户信息传递给模板引擎
+          res.redirect('/profil'); // Change this line
         }
       });
     });
+    
     app.post('/user-upload', upload.single('img'), function(req,res){
-      const title = req.body.title;
+      const text1 = req.body.text;
       const tag = req.body.tag;
+      const username = req.body.username; 
       const img = "/uploads/"+req.file.filename;
-      const sqlInsert = "INSERT INTO njstabell (text1,tag,text3) VALUES (?, ?, ?);"
-      db.query(sqlInsert, [title, tag, img], (err, result)=> {
+      const sqlInsert = "INSERT INTO njstabell (text1, tag, text3) VALUES (?, ?, ?);"
+      db.query(sqlInsert, [text1, tag, img], (err, result)=> {
           if(err) {
               console.log(err);
               throw err;
@@ -197,21 +195,91 @@
               res.redirect('/profil');
           }
       });
-    });
-    app.post('/andra', upload.single('img'), function(req,res){
-      const title = req.body.title;
-      const tag = req.body.tag;
-      const img = "/uploads/"+req.file.filename;
-      const sqlInsert = "INSERT INTO njstabell (text1,tag,text3) VALUES (?, ?, ?);"
-      db.query(sqlInsert, [title, tag, img], (err, result)=> {
-          if(err) {
-              console.log(err);
-              throw err;
-          } else {
-              res.redirect('/profil');
-          }
-      });
-    });
+  });
+  
+  app.get('/user-upload', function(req,res){
+  let sql = 'SELECT * FROM njstabell ORDER BY id DESC';
+  db.query(sql, function(err, results){
+      if(err) {
+          throw err;
+      } else {
+          obj = {data: results};
+          console.log(obj);
+          res.render('profil', obj)
+      }
+  });
+});
+
+
+app.post('/grid-aren', upload.single('img'), function(req,res){
+  const text1 = req.body.text;
+  const tag = req.body.tag;
+  const username = req.body.username; 
+  const img = "/uploads/"+req.file.filename;
+  const sqlInsert = "INSERT INTO njstabell (text1, tag, text3) VALUES (?, ?, ?);"
+  db.query(sqlInsert, [text1, tag, img], (err, result)=> {
+      if(err) {
+          console.log(err);
+          throw err;
+      } else {
+          res.redirect('/bra');
+      }
+  });
+});
+
+app.get('/grid-aren', function(req,res){
+  let sql = 'SELECT * FROM njstabell ORDER BY id DESC';
+  db.query(sql, function(err, results){
+      if(err) {
+          throw err;
+      } else {
+          obj = {data: results};
+          console.log(obj);
+          res.render('index', obj)
+      }
+  });
+});
+app.get('/bra', function(req,res){
+  let sql = 'SELECT * FROM njstabell ORDER BY id DESC';
+  db.query(sql, function(err, results){
+      if(err) {
+          throw err;
+      } else {
+          obj = {data: results};
+          console.log(obj);
+          res.render('bra', obj)
+      }
+  });
+});
+
+app.post('/search', (req, res) => {
+  const searchQuery = req.body.enamn;
+
+  // Retrieve data from your source (database, file, etc.)
+  const data = getDataFromYourSource(); // implement this function
+
+  // Filter data based on searchQuery
+  const filteredData = data.filter(item => item.author.includes(searchQuery));
+
+  res.json(filteredData);
+});
+
+app.get('/search', (req, res) => {
+  const searchQuery = req.query.enamn;
+
+  // Retrieve data from your source (database, file, etc.)
+  const data = getDataFromYourSource(); // implement this function
+
+  // Filter data based on searchQuery
+  const filteredData = data.filter(item => item.author.includes(searchQuery));
+
+  res.render('bra', { data: filteredData }); // assuming you have a view named 'search'
+});
+
+
+
+   
+
     app.get('/logout', function(req,res){
       req.session.destroy();
       res.redirect('/bra');
