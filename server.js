@@ -37,7 +37,7 @@
       const text1 = req.body.text1;
       const text = req.body.text;
       const img = "/uploads/"+req.file.filename;
-      const sqlInsert = "INSERT INTO njstabell (text1,tag,text3) VALUES (?, ?, ?);"
+      const sqlInsert = "INSERT INTO njstabell (text1,tag,bild) VALUES (?, ?, ?);"
       db.query(sqlInsert, [title, tag, img], (err, result)=> {
           if(err) {
               throw err;
@@ -57,9 +57,7 @@
       res.render('register')
   });
 
-  app.get('/inloga1',function(req,res){
-      res.render('inloga1')
-  });
+
 
   /*
   app.get('/profil',function(req,res){
@@ -186,7 +184,7 @@
       const tag = req.body.tag;
       const username = req.body.username; 
       const img = "/uploads/"+req.file.filename;
-      const sqlInsert = "INSERT INTO njstabell (text1, tag, text3) VALUES (?, ?, ?);"
+      const sqlInsert = "INSERT INTO njstabell (text1, tag, bild) VALUES (?, ?, ?);"
       db.query(sqlInsert, [text1, tag, img], (err, result)=> {
           if(err) {
               console.log(err);
@@ -216,7 +214,7 @@ app.post('/grid-aren', upload.single('img'), function(req,res){
   const tag = req.body.tag;
   const username = req.body.username; 
   const img = "/uploads/"+req.file.filename;
-  const sqlInsert = "INSERT INTO njstabell (text1, tag, text3) VALUES (?, ?, ?);"
+  const sqlInsert = "INSERT INTO njstabell (text1, tag, bild) VALUES (?, ?, ?);"
   db.query(sqlInsert, [text1, tag, img], (err, result)=> {
       if(err) {
           console.log(err);
@@ -251,6 +249,38 @@ app.get('/bra', function(req,res){
       }
   });
 });
+
+app.post('/grid-aren1', upload.single('img'), function(req,res){
+  const text1 = req.body.text;
+  const tag = req.body.tag;
+  const username = req.body.username; 
+  const img = "/uploads/"+req.file.filename;
+  const sqlInsert = "INSERT INTO njstabell (text1, tag, bild) VALUES (?, ?, ?);"
+  db.query(sqlInsert, [text1, tag, img], (err, result)=> {
+      if(err) {
+          console.log(err);
+          throw err;
+      } else {
+          res.redirect('/inloga1');
+      }
+  });
+});
+
+
+app.get('/inloga1', function(req,res){
+  let sql = 'SELECT * FROM njstabell ORDER BY id DESC';
+  db.query(sql, function(err, results){
+      if(err) {
+          throw err;
+      } else {
+          obj = {data: results};
+          console.log(obj);
+          res.render('inloga1', obj)
+      }
+  });
+});
+
+
 
 app.post('/search', (req, res) => {
   const searchQuery = req.body.enamn;

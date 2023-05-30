@@ -212,9 +212,9 @@
 </div>
 
   <% data.forEach(function (post) { %>
-    <% if(post.text3 != ''){ %>  <!-- Change post.text3 to post.img -->
+    <% if(post.bild != ''){ %>  <!-- Change post.text3 to post.img -->
         <div class="image-container <%= post.text1%> <%= post.tag %> user-upload">  <!-- Change post.text2 to post.tag -->
-            <img class="image" src="<%= post.text3 %>" alt="'default'">  <!-- Change post.text3 to post.img -->
+            <img class="image" src="<%= post.bild %>" alt="'default'">  <!-- Change post.text3 to post.img -->
             <div class="tags">
                 <span class="tag"><%= post.text1 %></span>
                 <span class="tag"><%= post.tag %></span>
@@ -222,7 +222,7 @@
             </div>
         </div>
     <% } %> 
-    <p><%= post.text3 %></p>  <!-- Change post.img to post.text3 -->
+    <p><%= post.bild %></p> 
 <% }) %>
 
 
